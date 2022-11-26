@@ -1,4 +1,4 @@
-# Task List
+# Task List (inspired by https://github.com/codurance/task-list)
 
 This is an example of code obsessed with primitives.
 
