@@ -19,8 +19,8 @@ public final class TaskList implements Runnable {
   private long lastId = 0;
 
   public static void main(String[] args) {
-    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    PrintWriter out = new PrintWriter(System.out);
+    var in = new BufferedReader(new InputStreamReader(System.in));
+    var out = new PrintWriter(System.out);
     new TaskList(in, out).run();
   }
 
@@ -60,7 +60,7 @@ public final class TaskList implements Runnable {
   }
 
   private void show() {
-    for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
+    for (var project : tasks.entrySet()) {
       out.println(project.getKey());
       for (Task task : project.getValue()) {
         out.printf(
@@ -105,8 +105,8 @@ public final class TaskList implements Runnable {
 
   private void setDone(String idString, boolean done) {
     var id = Integer.parseInt(idString);
-    for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
-      for (Task task : project.getValue()) {
+    for (var project : tasks.entrySet()) {
+      for (var task : project.getValue()) {
         if (task.getId() == id) {
           task.setDone(done);
           return;
