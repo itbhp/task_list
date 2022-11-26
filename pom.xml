@@ -96,12 +96,10 @@
                         <phase>validate</phase>
                         <configuration>
                             <configLocation>google_checks.xml</configLocation>
-                            <suppressionsLocation>suppressions.xml</suppressionsLocation>
                             <encoding>UTF-8</encoding>
                             <failsOnError>true</failsOnError>
                             <consoleOutput>true</consoleOutput>
-                            <includeTestSourceDirectory>true
-                            </includeTestSourceDirectory>
+                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
                         </configuration>
                         <goals>
                             <goal>check</goal>
