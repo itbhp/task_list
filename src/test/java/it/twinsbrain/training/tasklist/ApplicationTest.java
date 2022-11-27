@@ -5,9 +5,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import java.io.*;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 public final class ApplicationTest {
   public static final String PROMPT = "> ";
@@ -26,12 +27,12 @@ public final class ApplicationTest {
     applicationThread = new Thread(taskList);
   }
 
-  @Before
+  @BeforeEach
   public void start_the_application() {
     applicationThread.start();
   }
 
-  @After
+  @AfterEach
   public void kill_the_application() throws InterruptedException {
     if (notRunning()) {
       return;
@@ -46,8 +47,9 @@ public final class ApplicationTest {
     throw new IllegalStateException("The application is still running.");
   }
 
-  @Test(timeout = 1000)
-  public void it_works() throws IOException {
+  @Test
+  @Timeout(1000)
+  void it_works() throws IOException {
     execute("show");
 
     execute("add project secrets");
